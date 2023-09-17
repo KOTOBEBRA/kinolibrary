@@ -9,47 +9,52 @@
 </head>
 <body>
 
+    <!-- <img src="images/kosmos.png" alt="Error."> -->
+
     <form action="">
         <p>Сюда название фильма</p>
-        <input type="text">
+
+        <input type="text" id="name">
+
+        <p>Укажите год издательства</p>
+    
+        <select name="Year1" id="y1">
+            <option value="">2023</option>
+            <option value="">2022</option>
+            <option value="">2021</option>
+            <option value="">2020</option>
+        </select>
+    
+        <select name="Year2" id="y2">
+            <option value="">2023</option>
+            <option value="">2022</option>
+            <option value="">2021</option>
+            <option value="">2020</option>
+        </select>
+    
+        <p>Укажите жанр</p>
+    
+        <select name="Genre" id="g" class="">
+            <option value="">Комедия</option>
+            <option value="">Драма</option>
+            <option value="">Документалистика</option>
+            <option value="">Фантастика</option>
+        </select>
+    
+        <p>Укажите страну производства</p>
+    
+        <select name="Country" id="c">
+            <option value="">США</option>
+            <option value="">Великобритания</option>
+            <option value="">Россия</option>
+            <option value="">СССР</option>
+        </select>
+    
+        <input type="submit" value="Поиск">
     </form>
 
-    <p>Укажите год издательства</p>
-
-    <select name="Year1" id="y1">
-        <option value="">2023</option>
-        <option value="">2022</option>
-        <option value="">2021</option>
-        <option value="">2020</option>
-    </select>
-
-    <select name="Year2" id="y2">
-        <option value="">2023</option>
-        <option value="">2022</option>
-        <option value="">2021</option>
-        <option value="">2020</option>
-    </select>
-
-    <p>Укажите жанр</p>
-
-    <select name="Genre" id="g">
-        <option value="">Комедия</option>
-        <option value="">Драма</option>
-        <option value="">Документалистика</option>
-        <option value="">Фантастика</option>
-    </select>
-
-    <p>Укажите страну производства</p>
-
-    <select name="Country" id="c">
-        <option value="">США</option>
-        <option value="">Великобритания</option>
-        <option value="">Россия</option>
-        <option value="">СССР</option>
-    </select>
-
-    <input type="submit" value="Поиск">
-
     <script src="js/main.js"></script>
+
 </body>
 </html>
+
