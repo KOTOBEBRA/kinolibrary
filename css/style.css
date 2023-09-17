@@ -1,1 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: black;
+    background-image: url(../images//saturn_1080x1920.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    letter-spacing: 4px;
+}
+
+p {
+    font-weight: 500;
+}
+
+#name {
+    background-color: rgba(127, 255, 212, 0.153);
+    color: white;
+    outline: none;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+#name:focus {
+    border: 1px solid white;
+}
