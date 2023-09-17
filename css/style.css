@@ -25,3 +25,10 @@ p {
 .inputy:focus {
     border: 1px solid white;
 }
+
+#search {
+    color: white;
+    background-image:linear-gradient(to right, rgba(255, 0, 0, 0.315), rgba(255, 255, 0, 0.336), rgba(0, 0, 255, 0.274));
+    margin-top: 10px;
+    border-radius: 5px;
+}
