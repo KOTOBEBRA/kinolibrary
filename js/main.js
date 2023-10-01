@@ -33,10 +33,12 @@ Form.addEventListener("submit", (event) => {
             if (key == name)  {
                 console.log(key, CINEMA_LIBRARY[key]);
                 tg.sendData(JSON.stringify(key));
+                document.getElementById("search").style.backGround="red";
                 break;
             } else if (key.includes(name)) {
                 console,log(key, CINEMA_LIBRARY[key]);
                 tg.sendData(JSON.stringify(key));
+                document.getElementById("search").style.backGround="green";
                 break;
             }
         }
