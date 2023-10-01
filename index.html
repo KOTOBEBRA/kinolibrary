@@ -11,50 +11,54 @@
 
     <!-- <img src="images/kosmos.png" alt="Error."> -->
 
-    <form action="">
+    <form action="" id="Forma">
         <p>Сюда название фильма</p>
 
-        <input type="text" class="inputy">
+        <input type="text" name="name" id="name" class="inputy">
 
         <p>Укажите год издательства</p>
     
         <select name="Year1" id="y1" class="inputy">
-            <option value="">2023</option>
-            <option value="">2022</option>
-            <option value="">2021</option>
-            <option value="">2020</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2023</option>
+            <option value="2023">2023</option>
         </select>
     
         <select name="Year2" id="y2" class="inputy">
-            <option value="">2023</option>
-            <option value="">2022</option>
-            <option value="">2021</option>
-            <option value="">2020</option>
+            <option value="2023">2023</option>
+            <option value="2022">2022</option>
+            <option value="2021">2021</option>
+            <option value="2020">2020</option>
         </select>
     
         <p>Укажите жанр</p>
     
         <select name="Genre" id="g" class="inputy">
-            <option value="">Комедия</option>
-            <option value="">Драма</option>
-            <option value="">Документалистика</option>
-            <option value="">Фантастика</option>
+            <option value="Comady">Комедия</option>
+            <option value="Drama">Драма</option>
+            <option value="Documentaly">Документалистика</option>
+            <option value="Fantasy">Фантастика</option>
         </select>
     
         <p>Укажите страну производства</p>
     
         <select name="Country" id="c" class="inputy">
-            <option value="">США</option>
-            <option value="">Великобритания</option>
-            <option value="">Россия</option>
-            <option value="">СССР</option>
+            <option value="USA">США</option>
+            <option value="Great Britan">Великобритания</option>
+            <option value="Russia">Россия</option>
+            <option value="USSR">СССР</option>
         </select>
-    
+        
+        <p>
         <input type="submit" value="Поиск" id="search">
+        </p>
+
     </form>
 
     <script src="js/main.js"></script>
 
 </body>
 </html>
+
 
