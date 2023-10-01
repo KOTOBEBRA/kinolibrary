@@ -1,3 +1,5 @@
+let tg = window.Telegram.WebApp;
+
 let CINEMA_LIBRARY = {
     "Barbie": {
         "year":    2023,
@@ -30,9 +32,11 @@ Form.addEventListener("submit", (event) => {
         for (let key of Object.keys(CINEMA_LIBRARY)) {
             if (key == name)  {
                 console.log(key, CINEMA_LIBRARY[key]);
+                tg.sendData(key);
                 break;
             } else if (key.includes(name)) {
                 console,log(key, CINEMA_LIBRARY[key]);
+                tg.sendData(key);
                 break;
             }
         }
