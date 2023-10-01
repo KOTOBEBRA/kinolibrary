@@ -32,11 +32,11 @@ Form.addEventListener("submit", (event) => {
         for (let key of Object.keys(CINEMA_LIBRARY)) {
             if (key == name)  {
                 console.log(key, CINEMA_LIBRARY[key]);
-                tg.sendData(key);
+                tg.sendData(JSON.stringify(key));
                 break;
             } else if (key.includes(name)) {
                 console,log(key, CINEMA_LIBRARY[key]);
-                tg.sendData(key);
+                tg.sendData(JSON.stringify(key));
                 break;
             }
         }
