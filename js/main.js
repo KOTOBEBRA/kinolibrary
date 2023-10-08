@@ -1,5 +1,3 @@
-let tg = window.Telegram.WebApp;
-
 let CINEMA_LIBRARY = {
     "Barbie": {
         "year":    2023,
@@ -27,31 +25,35 @@ Form.addEventListener("submit", (event) => {
     let data = new FormData(Form);
     data = Object.fromEntries(data.entries());
 
-    if(data.name) {
-        const name = data.name; 
-        for (let key of Object.keys(CINEMA_LIBRARY)) {
-            if (key == name)  {
-                console.log(key, CINEMA_LIBRARY[key]);
-                tg.sendData(JSON.stringify(key));
-                document.getElementById("search").style.backgroundColor="red";
-                break;
-            } else if (key.includes(name)) {
-                console,log(key, CINEMA_LIBRARY[key]);
-                tg.sendData(JSON.stringify(key));
-                document.getElementById("search").style.backgroundColor="green";
-                break;
-            }
-        }
-    }
+    data = JSON.stringify(data);
+    tg.sendData(data);
 
-    if(data.year) {
-        const year = data.Year1;
-        for (let key of Object.keys(CINEMA_LIBRARY)) {
-            if (+CINEMA_LIBRARY[key]["year"] == +year)
-                console.log(key, CINEMA_LIBRARY[key]);
-                break;
-            }
-        }
+
+    // if(data.name) {
+    //     const name = data.name; 
+    //     for (let key of Object.keys(CINEMA_LIBRARY)) {
+    //         if (key == name)  {
+    //             console.log(key, CINEMA_LIBRARY[key]);
+    //             tg.sendData(JSON.stringify(key));
+    //             document.getElementById("search").style.backgroundColor="red";
+    //             break;
+    //         } else if (key.includes(name)) {
+    //             console,log(key, CINEMA_LIBRARY[key]);
+    //             tg.sendData(JSON.stringify(key));
+    //             document.getElementById("search").style.backgroundColor="green";
+    //             break;
+    //         }
+    //     }
+    // }
+
+    // if(data.year) {
+    //     const year = data.Year1;
+    //     for (let key of Object.keys(CINEMA_LIBRARY)) {
+    //         if (+CINEMA_LIBRARY[key]["year"] == +year)
+    //             console.log(key, CINEMA_LIBRARY[key]);
+    //             break;
+    //         }
+    //     }
     
 });
 
@@ -80,3 +82,6 @@ Form.addEventListener("submit", (event) => {
 
 // if index == 0:
 //     print("По вашему запросу фильм не найден")
+
+
+
