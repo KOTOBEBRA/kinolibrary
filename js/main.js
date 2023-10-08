@@ -1,4 +1,6 @@
-let CINEMA_LIBRARY = {
+const tg = window.Telegram.WebApp;
+
+const CINEMA_LIBRARY = {
     "Barbie": {
         "year":    2023,
         "country": "USA",
