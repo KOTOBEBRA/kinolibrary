@@ -79,8 +79,8 @@ Form.addEventListener("submit", (event) => {
             }
         }
         console.log(resultname);
-        const data = JSON.stringify(resultname);
-        tg.sendData(data);
+        const jdata = JSON.stringify(resultname);
+        tg.sendData(jdata);
     }
 
     if (data.Year1 && data.Year2) {
