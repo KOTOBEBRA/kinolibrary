@@ -1,23 +1,59 @@
-const tg = window.Telegram.WebApp;
-
-const CINEMA_LIBRARY = {
+let CINEMA_LIBRARY = {
     "Barbie": {
         "year":    2023,
-        "country": "USA",
-        "genre":   ["Comedy", "Adventure", "Fantasy"]
+        "country": ["USA"],
+        "genre":   ["Comedy", "Adventure", "Fantasy"],
+        "filename": "/Films/2023/Barbie.jpg"
     },
     
     "Oppenheimer": {
         "year":    2023,
         "country": ["USA", "Great Britan"],
-        "genre":   ["Drama", "Biography Film", "Historical Film"]
+        "genre":   ["Drama", "Biography Film", "Historical Film"],
+        "filename": "/Films/2023/Oppenheimer.jpg"
     },
 
     "Spider-Man: Across the Spider-Verse": {
         "year":    2023,
-        "country": "USA",
-        "genre":   ["Cartoon", "Superhero Film", "Action Movie", "Fiction"]
+        "country": ["USA"],
+        "genre":   ["Cartoon", "Superhero Film", "Action Movie", "Fiction"],
+        "filename": "Films/2023/Spider-Man: Across the Spider-Verse.jpg"
     },
+
+    "Avatar: The Way Of Water": {
+        "year":    2022,
+        "country": ["USA", "Great Britan"],
+        "genre":   ["Fictiion", "Adventure", "Sci-fi"],
+        "filename": "Films/2022/Avatar: The_Way_Of_Water.jpg"
+    },
+
+    "Bullet Train": {
+        "year":    2022,
+        "country": ["USA"],
+        "genre":   ["Comedy", "Action Movie"],
+        "filename": "Films/2022/Bullet_Train.jpg"
+    },
+
+    "Puss In Boots": {
+        "year":    2022,
+        "country": ["USA", "Great Britan"],
+        "genre":   ["Fictiion", "Adventure", "Fantasy"],
+        "filename": "Films/2022/Puss_In_Boots: The_Last_Wish.jpeg"
+    },
+
+    "Free Guy": {
+        "year":    2022,
+        "country": ["USA", "Great Britan"],
+        "genre":   ["Fictiion", "Action Movie", "Comedy"],
+        "filename": "Films/2021/Free_Guy.jpeg"
+    },
+
+    "Free Guy": {
+        "year":    2022,
+        "country": ["USA", "Great Britan"],
+        "genre":   ["Fictiion", "Fantasy", "Biography Movie"],
+        "filename": "Films/2021/Cruella.jpg"
+    }
 };
 
 const Form = document.getElementById("Forma");
@@ -26,38 +62,76 @@ Form.addEventListener("submit", (event) => {
     event.preventDefault();
     let data = new FormData(Form);
     data = Object.fromEntries(data.entries());
+    // console.log(data);
+    // data = JSON.stringify(data);
+    // tg.sendData(data);
 
-    data = JSON.stringify(data);
-    tg.sendData(data);
 
+    if (data.name) {
+        const resultname = [];
+        const name = data.name.toLowerCase();  // name - это название фильма
+        for (let key of Object.keys(CINEMA_LIBRARY)) {
+            if (key.toLowerCase() == name)  {
+                resultname.push(CINEMA_LIBRARY[key]);
+            } else if (key.toLowerCase().includes(name)) {
+                resultname.push(CINEMA_LIBRARY[key]);
+            }
+        }
+        console.log(resultname);
+        const data = JSON.stringify(resultname);
+        tg.sendData(data);
+    }
 
-    // if(data.name) {
-    //     const name = data.name; 
-    //     for (let key of Object.keys(CINEMA_LIBRARY)) {
-    //         if (key == name)  {
-    //             console.log(key, CINEMA_LIBRARY[key]);
-    //             tg.sendData(JSON.stringify(key));
-    //             document.getElementById("search").style.backgroundColor="red";
-    //             break;
-    //         } else if (key.includes(name)) {
-    //             console,log(key, CINEMA_LIBRARY[key]);
-    //             tg.sendData(JSON.stringify(key));
-    //             document.getElementById("search").style.backgroundColor="green";
-    //             break;
-    //         }
-    //     }
-    // }
+    if (data.Year1 && data.Year2) {
+        const resultyear1 = [];
+        for (let key of Object.keys(CINEMA_LIBRARY)) {
+            if (CINEMA_LIBRARY[key]["year"] >= +data.Year1 && CINEMA_LIBRARY[key]["year"] <= +data.Year2) {
+                resultyear1.push(CINEMA_LIBRARY[key]);
+            }
+        
+        }
+        console.log(resultyear1);
+    }
+
+    if (data.Country) {
+        const resultcountry = [];
+        for (let key of Object.keys(CINEMA_LIBRARY)) {
+            if  (CINEMA_LIBRARY[key]["country"].includes(data.Country)) {
+                resultcountry.push(CINEMA_LIBRARY[key]);
+            }
+        }
+        console.log(resultcountry);
+    }
+
+    if (data.Genre) {
+        const resultgenre = [];
+        for (let key of Object.keys(CINEMA_LIBRARY)) {
+            if  (CINEMA_LIBRARY[key]["genre"].includes(data.Genre)) {
+                resultgenre.push(CINEMA_LIBRARY[key]);
+            }
+        }
+        console.log(resultgenre);
+    }
 
     // if(data.year) {
+    //     const resultyear1 = [];
     //     const year = data.Year1;
     //     for (let key of Object.keys(CINEMA_LIBRARY)) {
     //         if (+CINEMA_LIBRARY[key]["year"] == +year)
-    //             console.log(key, CINEMA_LIBRARY[key]);
+    //             resultyear1.push(CINEMA_LIBRARY[key]["year"])
+    //             // console.log(key, CINEMA_LIBRARY[key]["year"]);
     //             break;
     //         }
+    //         console.log(resultyear1)
     //     }
+
     
-});
+    // if (CINEMA_LIBRARY[key]["year"].includes(data.Year) && CINEMA_LIBRARY[key]["country"].includes(data.Country) && CINEMA_LIBRARY[key]["genre"].includes(data.Genre)) {  
+    //         let entireresult = [];
+    //         entireresult.push(CINEMA_LIBRARY[key]);
+    // }
+    //     console.log(entireresult)
+
 
 // # поиск по названию
 // """
@@ -83,8 +157,7 @@ Form.addEventListener("submit", (event) => {
 //         index += 1
 
 // if index == 0:
-
 //     print("По вашему запросу фильм не найден")
 
-
+});
 
