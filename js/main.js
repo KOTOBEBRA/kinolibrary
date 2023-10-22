@@ -57,6 +57,7 @@ let CINEMA_LIBRARY = {
 };
 
 const Form = document.getElementById("Forma");
+const tg = window.Telegram.WebApp;
 
 Form.addEventListener("submit", (event) => {
     event.preventDefault();
